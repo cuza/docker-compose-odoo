@@ -7,6 +7,7 @@
 
 ## Agregado de repositorios
 La imagen sugerida de odoo ya tiene los repositorios que usamos cargados. Si se quiere trabajar en desarrollo o agregar otros repositorios localmente, entonces:
+
 1. clonar dichos repositorios en la carpeta "sources"
 2. editar .env (subl .env) y modificar parámetro "CUSTOM_ADDONS" para que quede de la forma "CUSTOM_ADDONS=/mnt/extra-addons/[nombre_directorio_repositorio]"
 
