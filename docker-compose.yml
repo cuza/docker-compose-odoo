@@ -1,0 +1,45 @@
+version: '2'
+services:
+    db:
+        # al definir un name no se puede escalar
+        container_name: db
+        image: postgres:9.5
+        environment:
+            - POSTGRES_USER=odoo
+            - POSTGRES_PASSWORD=odoo
+        volumes:
+            - pg_data:/var/lib/postgresql/data
+    odoo:
+        image: $ODOO_IMAGE:$ODOO_VERSION
+        container_name: odoo
+        external_links:
+            - aeroo_docs:aeroo
+            # - db
+        depends_on:
+            - db
+        # TODO analizar si aportan
+        # links:
+        #     - db:db
+        # hostname: elasticsearch
+        # restart: always
+        # dns: 172.17.42.1
+        # entrypoint: ./wait-for-it.sh db:5432
+        # expose:
+        # command: --load=$load_modues --addons-path=$addons_path ${AAA}
+        ports:
+            - "8069:8069"
+        volumes:
+            - ./sources:/mnt/extra-addons/
+            - odoo_data:/var/lib/odoo/
+        environment:
+            - DB_PORT_5432_TCP_ADDR=db
+            - DB_PORT_5432_TCP_PORT=5432
+            - DB_ENV_POSTGRES_USER=odoo  
+            - DB_ENV_POSTGRES_PASSWORD=odoo
+            - CUSTOM_ADDONS=$CUSTOM_ADDONS
+            - ADMIN_PASS=$ADMIN_PASS
+            - SERVER_MODE=$SERVER_MODE
+            - SERVER_WIDE_MODULES = $SERVER_WIDE_MODULES
+volumes:
+    pg_data:
+    odoo_data:
