@@ -4,6 +4,7 @@
 * instalar docker-compose con "sudo curl -sSL https://get.docker.com/ | sh"
 * en algun directorio que deseemos, descargamos este repositorio "git clone git@github.com:ingadhoc/docker-compose-odoo.git"
 * levantamos odoo entrando al directorio (cd docker-compose-odoo) y corriendo "docker-compose up"
+* accedemos a odoo en http://localhost:8069/
 
 ## Agregado de repositorios
 La imagen sugerida de odoo ya tiene los repositorios que usamos cargados. Si se quiere trabajar en desarrollo o agregar otros repositorios localmente, entonces:
