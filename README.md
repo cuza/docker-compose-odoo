@@ -1,7 +1,7 @@
 # Docker Compose para Odoo
 ## Instalación
-* instalar docker-engine con "pip install docker-compose"
-* instalar docker-compose con "sudo curl -sSL https://get.docker.com/ | sh"
+* instalar docker-compose con "pip install docker-compose"
+* instalar docker-engine con "sudo curl -sSL https://get.docker.com/ | sh"
 * en algun directorio que deseemos, descargamos este repositorio "git clone git@github.com:ingadhoc/docker-compose-odoo.git"
 * levantamos odoo entrando al directorio (cd docker-compose-odoo) y corriendo "docker-compose up"
 
